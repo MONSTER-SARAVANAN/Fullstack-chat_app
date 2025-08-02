@@ -13,7 +13,7 @@ dotenv.config()
 const PORT = process.env.PORT;
 const __dirname = path.resolve();
 
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 app.use(cookieParser());
 app.use(cors({
     origin: "http://localhost:5173",
@@ -35,4 +35,3 @@ server.listen(PORT, ()=> {
     console.log(`Server is running on port ${PORT}`);
     connectDB();
 })
-
